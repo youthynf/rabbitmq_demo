@@ -1,4 +1,4 @@
-package com.study.workqueues;
+package com.study.pubsub;
 
 import com.rabbitmq.client.*;
 import com.study.util.RabbitMQConnectionUtil;
@@ -24,7 +24,7 @@ public class Consumer {
         final Channel channel = connection.createChannel();
 
         // 3.构建队列
-        channel.queueDeclare(Publisher.QUEUE_NAME, false, false, false, null);
+        channel.queueDeclare(Publisher.QUEUE_NAME1, false, false, false, null);
 
         // 4.设置消息的流控
         channel.basicQos(3);
@@ -43,7 +43,7 @@ public class Consumer {
                 channel.basicAck(envelope.getDeliveryTag(), false);
             }
         };
-        channel.basicConsume(Publisher.QUEUE_NAME, false, callback);
+        channel.basicConsume(Publisher.QUEUE_NAME1, false, callback);
         System.out.println("开始监听队列消息");
 
         System.in.read();
@@ -58,7 +58,7 @@ public class Consumer {
         final Channel channel = connection.createChannel();
 
         // 3.构建队列
-        channel.queueDeclare(Publisher.QUEUE_NAME, false, false, false, null);
+        channel.queueDeclare(Publisher.QUEUE_NAME2, false, false, false, null);
 
         // 4.设置消息的流控
         channel.basicQos(3);
@@ -77,7 +77,7 @@ public class Consumer {
                 channel.basicAck(envelope.getDeliveryTag(), false);
             }
         };
-        channel.basicConsume(Publisher.QUEUE_NAME, false, callback);
+        channel.basicConsume(Publisher.QUEUE_NAME2, false, callback);
         System.out.println("开始监听队列消息");
 
         System.in.read();
