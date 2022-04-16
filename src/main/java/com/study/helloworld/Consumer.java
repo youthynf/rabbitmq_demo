@@ -1,4 +1,4 @@
-package com.study.helloword;
+package com.study.helloworld;
 
 import com.rabbitmq.client.*;
 import com.study.util.RabbitMQConnectionUtil;
