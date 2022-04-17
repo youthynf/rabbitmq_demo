@@ -23,3 +23,9 @@
 - 生产者发送消息时也需要指定好RoutingKey；
 - 只有消息的RoutingKey与队列Queue的RoutingKey一致时，这个消息才会被路由到对应的队列Queue中；
 - 消费者和之前的模式一样，直接从指定队列Queue中消费消息即可。
+
+### 5.Topic
+- 生产者指定TOPIC类型Exchange；
+- 生产者在绑定Exchange和Queue时，使用形如“xxx.xxx.xxx”的RoutingKey;
+- 生产者发送消息时，使用形式符合的RoutingKey才能进入正确的队列；
+- 消费者和之前模式一样，直接从指定的队列中消费消息即可。
